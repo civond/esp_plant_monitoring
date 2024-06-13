@@ -1,5 +1,5 @@
 <h1>LeafLogic (ESP32-based Plant Monitoring)</h1>
-<img src="Wire_diagram.PNG"></img>
+<img src="Wire_diagram.png"></img>
 <div>
   This is an open source plant monitoring system with a phone app.
 </div>
