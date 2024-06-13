@@ -1,10 +1,16 @@
+
 <h1>LeafLogic (ESP32-based Plant Monitoring)</h1>
-<img src="Wire_diagram.png"></img>
+   
 <div>
   This is an open source plant monitoring system with a phone app.
 </div>
 
 <div>
+  <div align="center">
+    <img src="PinLayout.png" alt="Pin Layout" align=center width=650px></img>
+  </div>
+  
+  
   <h3>Parts Used:</h3>
   <ul>
     <li>ESP-WROOM-32 Dev kit</li>
