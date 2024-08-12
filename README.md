@@ -2,7 +2,8 @@
 <h1>LeafLogic (ESP32-based Plant Monitoring)</h1>
    
 <div>
-  This is an open source plant monitoring system with a phone app.
+  This is an open source plant monitoring system with a phone app. 
+
 </div>
 
 <div>
@@ -23,8 +24,8 @@
 
   <h3>Libraries:</h3>
   <ul>
-    <li>Adafruit BusIO</li>
-    <li>Adafruit GFX Library</li>
+    <li>Adafruit seesaw</li>
+    <li>Adafruit VEML7700</li>
     <li>Adafruit SSD1306</li>
   </ul>
 </div>
