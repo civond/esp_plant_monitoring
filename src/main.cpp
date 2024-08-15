@@ -9,9 +9,7 @@
 
 // Utility functions
 #include "utils.h"
-
-// Define global variables here
-#define MUX_Address 0x70
+#include "config.h"
 
 // SD card pins
 
@@ -25,20 +23,20 @@ SdExFat sd;*/
 // Sensors
 const int VEML7700_Channel = 0;
 const int Stemma_Channel = 1;
-Adafruit_VEML7700 veml = Adafruit_VEML7700();
-Adafruit_seesaw ss;
+const char* write_dir = "/logs";
+//const char* ssid = "Verizon_9DV9GK";
+//const char* password = "cowl4-salty-add";
+const int baud_rate = 115200;
+
 
 // Setup function
 void setup() {
-  const int baud_rate = 115200;
-  const char* ssid = "SSID";
-  const char* password = "password";
 
   // Initialize Wire and Serial
   Wire.begin();
   Serial.begin(baud_rate);
   while (!Serial) {}
-
+  Serial.println("\n-------START SETUP-------");
   // Wifi
   start_wifi(ssid, password);
 
@@ -56,28 +54,15 @@ void setup() {
   // Scan TCA9548A channels for i2c devices
   TCA_Scan();
 
-  // VEML7700
-  TCA_Select(VEML7700_Channel);
-  if (!veml.begin()) {
-    Serial.println("VEML7700 not found.");
-  } else {
-    Serial.println("VEML7700 initialized!");
-  }
-  veml.setGain(VEML7700_GAIN_1_8);
-  veml.setIntegrationTime(VEML7700_IT_100MS);
-  veml.powerSaveEnable(true);
-  veml.setPowerSaveMode(VEML7700_POWERSAVE_MODE4);
-  veml.enable(true);
+  // Initialize sensors
+  float lux = 0.0f;
+  float tempC = 0.0f;
+  uint16_t capread = 0;
 
+  start_veml(VEML7700_Channel, lux); // Lux sensor
+  start_stemma(Stemma_Channel, tempC, capread); // Moisture sensor
 
-  // Stemma
-  TCA_Select(Stemma_Channel);
-  if (!ss.begin(0x36)) {
-    Serial.println("Stemma not found.");
-  } else {
-    Serial.println("Stemma initialized!");
-  }
-
+  Serial.println("-------END-------\n");
 }
 
 // Main
@@ -88,18 +73,20 @@ void loop() {
   // VEML7700
   TCA_Select(VEML7700_Channel);
   float lux = veml.readLux();
-  Serial.println("VEML7700:");
-  Serial.println("\tLux: " + String(lux));
 
   // Stemma
   TCA_Select(Stemma_Channel);
-  Serial.println("Stemma:");
   float tempC = ss.getTemp();
   uint16_t capread = ss.touchRead(0);
 
-  Serial.println("\tTemp: " + String(tempC) + "; Moisture: " + String(capread));
+  // Generate path and write data to .txt file
+  int numFiles = countFilesInDirectory(write_dir);
+  String write_path = String(write_dir) + "/" + String(numFiles) + ".txt";
+  String data = "Lux:" + String(lux) + ";Temp:" + String(tempC) +";Moisture:" + String(capread);
 
-
+  writeFile(SD, write_path.c_str(), data.c_str());
+  Serial.println(String(write_path));
+  Serial.println("\tLux: " + String(lux) + "; Temp: " + String(tempC) + "; Moisture: " + String(capread));
   delay(2000);
 }
 
