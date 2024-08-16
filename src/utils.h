@@ -65,7 +65,7 @@ void start_stemma(const int Stemma_Channel, float tempC, uint16_t capread) {
 // Make Base Directory on SD Card
 void createDir(fs::FS &fs, const char * path) {
     if (fs.exists(path)) {
-        Serial.println("\t" + String(path) + " already exists.");
+        Serial.println("\t" + String(path) + " dir already exists.");
     } else if (fs.mkdir(path)) {
       Serial.println("\t" + String(path) + " created!");
     } else {
