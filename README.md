@@ -5,10 +5,6 @@
   This is an ESP32-based plant monitoring project created using PlatformIO and the Arduino framework. We plan on incorporrating an Android app with Gemini (TBA).
   <br/><br/>
 </div>
-<h2>Phone Application</h2>
-<div>
-  Flutter whaterever
-</div>
 
 <h2>Microcontroller Programming</h2>
 <div align="center">
@@ -40,7 +36,6 @@
   <ul>
     <li><b>Microcontroller programming</b>: Dorian Yeh</br></li>
     <li><b>Application development</b>: Owen Loughran</br></li>
-    <li><b>Gemini</b>: [まだ決まってない]</li>
   </ul>
 
 </div>
