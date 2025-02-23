@@ -9,7 +9,7 @@
   <br/><br/>
 </div>
 
-<h2>Microcontroller Programming</h2>
+<h2>Wiring Diagram</h2>
 <div align="center">
   <img src="PinLayout.png" alt="Pin Layout" align=center width=500px></img>
 </div>
