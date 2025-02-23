@@ -2,7 +2,7 @@
 <h1>Plant Monitoring</h1>
    
 <div>
-  This is an ESP32-based plant monitoring project created using PlatformIO and the Arduino framework. We plan on incorporrating an Android app with Gemini (TBA).
+  This is an ESP32-based plant monitoring project created using PlatformIO and the Arduino framework.
   <br/><br/>
 </div>
 
@@ -28,14 +28,4 @@
     <li>Adafruit VEML7700</li>
     <li>Adafruit SSD1306</li>
   </ul>
-</div>
-
-<div>
-
-  <h2>Contributions:</h2>
-  <ul>
-    <li><b>Microcontroller programming</b>: Dorian Yeh</br></li>
-    <li><b>Application development</b>: Owen Loughran</br></li>
-  </ul>
-
 </div>
