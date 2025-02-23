@@ -2,7 +2,10 @@
 <h1>Plant Monitoring</h1>
    
 <div>
-  This is an ESP32-based plant monitoring project created using PlatformIO and the Arduino framework.
+  This is an ESP32-based plant monitoring project created using PlatformIO and the Arduino framework. It has the functionality of collecting sensor data for soil temperature, soil humidity ambient light which are stored on a micro SD card. Current data is also displayed on the SSD 1306 screen. The plant data can be pushed in real time to the internet using the ESP32's built-in wifi capability to create visualizations on the environment over time.
+  <br/><br/>
+   
+   In the future, I plan on incorporating additional sensors to measure ambient temperature and humidity (ex: SHT30) and establish a web repository where recent data is displayed and perhaps automatic watering once soil humidity reaches a critical dryness.
   <br/><br/>
 </div>
 
